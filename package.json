@@ -1,0 +1,92 @@
+{
+  "name": "warehouse",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "make run-android",
+    "ios": "make run-ios",
+    "lint": "eslint src --ext .js --cache",
+    "test": "TZ='Asia/Jakarta' jest --expand",
+    "test:coverage": "TZ='Asia/Jakarta' jest --expand --collectCoverage",
+    "flow": "flow"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-splash-screen": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/preset-flow": "^7.21.4",
+    "@babel/runtime": "^7.20.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^29.2.1",
+    "@types/react": "^18.0.24",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^29.5.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.7",
+    "eslint": "^8.19.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "flow-bin": "^0.206.0",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "jest-extended": "^3.2.4",
+    "jest-junit-reporter": "^1.1.0",
+    "metro-react-native-babel-preset": "0.73.9",
+    "prettier": "^2.4.1",
+    "react-dom": "^18.2.0",
+    "react-native-dotenv": "^3.4.8",
+    "react-test-renderer": "18.2.0",
+    "typescript": "4.8.4"
+  },
+  "jest": {
+    "globals": {
+      "__TEST__": true
+    },
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "cacheDirectory": "/tmp",
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/Test/Setup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "(styles|story).js",
+      "Constants.js",
+      "/Themes/",
+      "Tests/Setup.js",
+      "index.js"
+    ],
+    "coverageDirectory": "./coverage/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:coverage && yarn lint && yarn flow"
+    }
+  }
+}
