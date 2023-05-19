@@ -1,20 +1,7 @@
 // @flow
 import * as React from 'react';
-import { Text, SafeAreaView, StyleSheet } from "react-native";
+import { Text, SafeAreaView, StyleSheet } from 'react-native';
 import { version, name } from '../../../package.json';
-
-/**
- * Root Component
- * @returns React.Node
- */
-const App = (): React.Node => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Welcome to "{name.toUpperCase()}"</Text>
-      <Text style={styles.version}>v.{version}</Text>
-    </SafeAreaView>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -31,8 +18,19 @@ const styles = StyleSheet.create({
   version: {
     fontSize: 16,
     textAlign: 'center',
-    fontWeight: 600,
+    fontWeight: 600
   }
 });
+
+/**
+ * Root Component
+ * @returns {React.Node} App component
+ */
+const App = (): React.Node => (
+  <SafeAreaView style={styles.container}>
+    <Text style={styles.title}>Welcome to {name.toUpperCase()}</Text>
+    <Text style={styles.version}>v.{version}</Text>
+  </SafeAreaView>
+);
 
 export default App;

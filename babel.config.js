@@ -9,8 +9,8 @@ module.exports = {
         blacklist: null,
         whitelist: null,
         safe: false,
-        allowUndefined: true,
-      },
-    ],
-  ],
+        allowUndefined: true
+      }
+    ]
+  ]
 };

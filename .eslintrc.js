@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  parser: '@babel/eslint-parser',
   extends: [
     './eslint-config-base',
     './eslint-config-base/rules/react',
@@ -20,24 +20,24 @@ module.exports = {
     }
   ],
   rules: {
-    // 'require-jsdoc': [
-    //   'error',
-    //   {
-    //     require: {
-    //       FunctionDeclaration: true,
-    //       MethodDefinition: true,
-    //       ClassDeclaration: true,
-    //       ArrowFunctionExpression: true,
-    //       FunctionExpression: true,
-    //     },
-    //   },
-    // ],
+    'require-jsdoc': [
+      'error',
+      {
+        require: {
+          FunctionDeclaration: true,
+          MethodDefinition: true,
+          ClassDeclaration: true,
+          ArrowFunctionExpression: true,
+          FunctionExpression: true
+        }
+      }
+    ],
     'valid-jsdoc': 'error',
     'no-underscore-dangle': 'off',
-    'object-curly-newline': ['error', {minProperties: 4, consistent: true}],
+    'object-curly-newline': ['error', { minProperties: 4, consistent: true }],
 
     // react specific
-    'react/jsx-filename-extension': ['error', {extensions: ['.js']}],
+    'react/jsx-filename-extension': ['error', { extensions: ['.js'] }]
   },
   globals: {
     describe: true,
@@ -46,6 +46,6 @@ module.exports = {
     beforeEach: true,
     afterEach: true,
     it: false,
-    jest: false,
-  },
+    jest: false
+  }
 };
